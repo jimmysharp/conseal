@@ -1,0 +1,27 @@
+{
+  "files.eol": "\n",
+  "editor.formatOnSave": true,
+  "go.formatTool": "custom",
+  "go.formatFlags": [
+    "fmt",
+    "--stdin"
+  ],
+  "go.alternateTools": {
+    "customFormatter": "golangci-lint"
+  },
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": [
+    "--path-mode=abs",
+    "--fast-only"
+  ],
+  "go.useLanguageServer": true,
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+  "[json][jsonc]": {
+    "editor.tabSize": 2
+  },
+  "[yaml]": {
+    "editor.tabSize": 2
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "conseal",
+  "dockerComposeFile": [
+    "../compose.yml",
+    "compose.devcontainer.yml"
+  ],
+  "service": "conseal",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.go"
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+services:
+  conseal:
+    command: /bin/sh -c "sleep infinity"

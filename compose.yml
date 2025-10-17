@@ -1,0 +1,8 @@
+services:
+  conseal:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/workspace
+    working_dir: /workspace

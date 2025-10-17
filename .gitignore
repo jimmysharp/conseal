@@ -1,0 +1,6 @@
+# coverage
+*.out
+
+# binary
+conseal
+dist/
