@@ -85,7 +85,12 @@ func (c *conseal) checkCompositeLit(lit *ast.CompositeLit, pass *analysis.Pass) 
 		return
 	}
 
-	named, ok := tv.Type.(*types.Named)
+	typ := tv.Type
+	if ptr, ok := typ.(*types.Pointer); ok {
+		typ = ptr.Elem()
+	}
+
+	named, ok := typ.(*types.Named)
 	if !ok {
 		return
 	}
