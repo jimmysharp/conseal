@@ -3,7 +3,7 @@ package app
 import "example.com/testproject/domain"
 
 func WithConstructor() {
-	user := domain.NewUser(123, "Alice", 30)
+	user, _ := domain.NewUser(123, "Alice", 30)
 	_ = user
 }
 
@@ -26,7 +26,7 @@ func WithoutConstructorByPointer() {
 }
 
 func DirectAssignment() {
-	user := domain.NewUser(123, "Charlie", 35)
+	user, _ := domain.NewUser(123, "Charlie", 35)
 
 	user.Name = "Dave" // want "direct assignment to field Name of struct User is prohibited, use constructor function"
 }
