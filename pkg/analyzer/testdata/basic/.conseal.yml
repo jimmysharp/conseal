@@ -2,7 +2,6 @@ packages:
   - "example\\.com/testproject/domain.*"
 constructors:
   - "^New.*"
-  - "^Create.*"
 ignore-files:
   - "_test\\.go$"
 allow-same-package: false
