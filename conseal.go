@@ -25,10 +25,6 @@ func NewAnalyzer(config *Config) *analysis.Analyzer {
 }
 
 func (c *conseal) run(pass *analysis.Pass) (any, error) {
-	if len(c.config.Packages) == 0 {
-		return nil, nil
-	}
-
 	inspect := inspector.New(pass.Files)
 
 	nodeFilter := []ast.Node{
@@ -60,10 +56,12 @@ func (c *conseal) run(pass *analysis.Pass) (any, error) {
 }
 
 func (c *conseal) isTargetPackage(pkgPath string) bool {
-	if len(c.config.Packages) == 0 {
-		return false
+	// If no struct-packages are specified, target all packages
+	if len(c.config.StructPackages) == 0 {
+		return true
 	}
-	for _, pattern := range c.config.Packages {
+	// If struct-packages are specified, only target matching packages
+	for _, pattern := range c.config.StructPackages {
 		if pattern.MatchString(pkgPath) {
 			return true
 		}
