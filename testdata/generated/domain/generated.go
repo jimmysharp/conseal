@@ -8,7 +8,7 @@ type User struct {
 	Age  int
 }
 
-// This initialization is in a generated file - should NOT be detected
+// SHOULD NOT REPORT: This initialization is in a generated file
 func InitUser() *User {
 	return &User{
 		ID:   1,
@@ -17,7 +17,7 @@ func InitUser() *User {
 	}
 }
 
-// Another struct construction in generated file - should NOT be detected
+// SHOULD NOT REPORT: This is also in generated file
 var DefaultUser = User{
 	ID:   0,
 	Name: "default",

@@ -8,6 +8,7 @@ type User struct {
 	Age  int
 }
 
+// SHOULD NOT REPORT: "^New.*" is default constructor pattern (struct-packages)
 func NewUser(id int, name string, age int) (*User, error) {
 	if id <= 0 {
 		return nil, fmt.Errorf("id must be positive: %d", id)
