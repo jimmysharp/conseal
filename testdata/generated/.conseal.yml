@@ -1,0 +1,7 @@
+struct-packages:
+  - "example\\.com/testproject/domain.*"
+constructors:
+  - "^New.*"
+ignore-files:
+  - "_test\\.go$"
+allow-same-package: false
