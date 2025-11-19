@@ -2,7 +2,7 @@ package app
 
 import "example.com/testproject/domain"
 
-// Direct initialization in a NON-generated file - SHOULD be detected
+// SHOULD REPORT: Direct initialization in a NON-generated file
 func UseGeneratedUser() {
 	_ = domain.User{ // want "direct construction of struct User is prohibited, use constructor function"
 		ID:   3,
@@ -17,7 +17,7 @@ func UseGeneratedUser() {
 	}
 }
 
-// Direct assignment in a NON-generated file - SHOULD be detected
+// SHOULD REPORT: Direct assignment in a NON-generated file
 func DirectAssignment() {
 	u := &domain.User{ // want "direct construction of struct User is prohibited, use constructor function"
 		ID:   1,
