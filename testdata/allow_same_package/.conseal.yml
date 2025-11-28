@@ -2,5 +2,4 @@ struct-packages:
   - "example\\.com/testproject/domain.*"
 constructors:
   - "^New.*"
-  - "^Create.*"
 allow-same-package: true

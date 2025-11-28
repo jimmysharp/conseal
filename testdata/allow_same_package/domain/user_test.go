@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// SHOULD NOT REPORT: Same package initialization is allowed (allow-same-package: true)
 func TestNewUser_Success(t *testing.T) {
 	type args struct {
 		id   int
@@ -46,6 +47,7 @@ func TestNewUser_Success(t *testing.T) {
 	}
 }
 
+// SHOULD NOT REPORT: Same package initialization is allowed (allow-same-package: true)
 func TestNewUser_Error(t *testing.T) {
 	type args struct {
 		id   int

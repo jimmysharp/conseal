@@ -2,11 +2,13 @@ package app
 
 import "example.com/testproject/domain"
 
+// SHOULD NOT REPORT: Using constructor function
 func WithConstructor() {
 	user, _ := domain.NewUser(123, "Alice", 30)
 	_ = user
 }
 
+// SHOULD REPORT: Direct initialization without constructor
 func WithoutConstructor() {
 	_ = domain.User{ // want "direct construction of struct User is prohibited, use constructor function"
 		ID:   123,
@@ -23,6 +25,7 @@ func WithoutConstructor() {
 	_ = &domain.User{} // want "direct construction of struct User is prohibited, use constructor function"
 }
 
+// SHOULD REPORT: Direct field assignment
 func DirectAssignment() {
 	user, _ := domain.NewUser(123, "Charlie", 35)
 
@@ -35,6 +38,7 @@ type StructInSamePackage struct {
 	message string
 }
 
+// SHOULD NOT REPORT: Only "domain" package is targeted (struct-packages)
 func InSamePackage() {
 	_ = StructInSamePackage{
 		message: "Hello, World!",
@@ -44,6 +48,7 @@ func InSamePackage() {
 	}
 }
 
+// SHOULD REPORT: Direct initialization in slice
 func InSlice() {
 	_ = []domain.User{
 		{ // want "direct construction of struct User is prohibited, use constructor function"
@@ -89,6 +94,7 @@ func InSlice() {
 	}
 }
 
+// SHOULD REPORT: Direct initialization in map
 func InMap() {
 	_ = map[int]domain.User{
 		1: { // want "direct construction of struct User is prohibited, use constructor function"
@@ -117,6 +123,7 @@ func InMap() {
 	}
 }
 
+// SHOULD REPORT: Direct initialization in array
 func InArray() {
 	users := [2]domain.User{
 		{ // want "direct construction of struct User is prohibited, use constructor function"
@@ -141,6 +148,7 @@ type PointerWrapper struct {
 	User *domain.User
 }
 
+// SHOULD REPORT: Direct initialization in struct field
 func InStructField() {
 	_ = Wrapper{
 		User: domain.User{ // want "direct construction of struct User is prohibited, use constructor function"

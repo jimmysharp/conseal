@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// SHOULD REPORT: No ignore-files configured, so test files are also checked (ignore-files)
 func TestNewUser_Success(t *testing.T) {
 	type args struct {
 		id   int
@@ -46,6 +47,7 @@ func TestNewUser_Success(t *testing.T) {
 	}
 }
 
+// SHOULD REPORT: No ignore-files configured, so test files are also checked (ignore-files)
 func TestNewUser_Error(t *testing.T) {
 	type args struct {
 		id   int
